@@ -1,6 +1,9 @@
 #!/usr/bin/env node-rps
 
-//file that runs when we link/install package & run node-rps
+//to run, say  
+//node ./rps-cli.js -r
+
+//this is a file that runs when we link/install package & run node-rps
 
 //import fetch from 'node-fetch';
 import minimist from 'minimist';
@@ -46,6 +49,13 @@ if (args.r || args.rules){
 // Get the data from the request
 
 //const data = await response.json();
+
+//if no arguments,
+if (!args.h || !args.help || !args.r || !args.rules ){
+  console.log(`please provide an argument`);
+  console.log(`{"player":"rock"}`)
+  process.exit(0);
+}
 
 
 console.log(`Hello World`);
