@@ -42,6 +42,13 @@ if (args.r || args.rules){
     process.exit(0);
 }
 
-let shot = args._[0]
-console.log(JSON.stringify(rpsls(shot)))
+let shot = args._[0];
+let result = rpsls(shot);
+
+if (result instanceof Error){
+    console.log(rulesText);
+    process.exit(0);
+}
+
+console.log(JSON.stringify(result));
 process.exit(0);
