@@ -33,17 +33,30 @@ let rulesText = `Rules for the Lizard-Spock Espansion of Rock Paper Scissors:
 - Spock VAPORIZES Rock
 - Rock CRUSHES Scissors`
 
+/*
+let shot = args._[0]
+
 if (args.h || args.help) {
     console.log(helpText);
+
 } else if (args.r || args.rules) {
     console.log(rulesText);
-} else {
-    let output = rpsls(args._[0]);
 
-    if (output instanceof Error) {
-        console.log(helpText);
-        console.log(rulesText);
-    } else {
-        console.log(JSON.stringify(output));
-    }
+} try {
+  console.log(JSON.stringify(rpsls(shot)));
+}catch(e){
+  console.log(e.name);
+  console.log(e.message);
+  console.log(helpText);
+  console.log(rulesText);
+}*/
+let shot = args._[0];
+let result = rpsls(shot);
+
+if (result instanceof Error){
+    console.log(rulesText);
+    process.exit(0);
 }
+
+console.log(JSON.stringify(result));
+process.exit(0);
