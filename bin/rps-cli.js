@@ -1,9 +1,7 @@
-#!/usr/bin/env node-rps
+#!/usr/bin/env node
 
 //to run, say  
 //node ./rps-cli.js -r
-
-//this is a file that runs when we link/install package & run node-rps
 
 //import fetch from 'node-fetch';
 import minimist from 'minimist';
