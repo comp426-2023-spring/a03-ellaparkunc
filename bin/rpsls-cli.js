@@ -19,36 +19,33 @@ Examples:
   node-rpsls rock   Return JSON with results for RPSLS played against a simulated opponent.
                     e.g {"player":"rock","opponent":"Spock","result":"lose"}`
 
-if (args.h || args.help){
-    console.log(helpText);
-    process.exit(0);
-}
 
 let rulesText = `Rules for the Lizard-Spock Espansion of Rock Paper Scissors:
 
-    - Scissors CUTS Paper
-    - Paper COVERS Rock
-    - Rock SMOOSHES Lizard
-    - Lizard POISONS Spock
-    - Spock SMASHES Scissors
-    - Scissors DECAPITATES Lizard
-    - Lizard EATS Paper
-    - Paper DISPROVES Spock
-    - Spock VAPORIZES Rock
-    - Rock CRUSHES Scissors`
+- Scissors CUTS Paper
+- Paper COVERS Rock
+- Rock SMOOSHES Lizard
+- Lizard POISONS Spock
+- Spock SMASHES Scissors
+- Scissors DECAPITATES Lizard
+- Lizard EATS Paper
+- Paper DISPROVES Spock
+- Spock VAPORIZES Rock
+- Rock CRUSHES Scissors`
 
-if (args.r || args.rules){
-    console.log(rulesText);
-    process.exit(0);
+if (args.h || args.help){
+    console.log(helpText);
 }
-
-let shot = args._[0];
-let result = rpsls(shot);
-
-if (result instanceof Error){
+else if (args.r || args.rules){
     console.log(rulesText);
-    process.exit(0);
 }
+else{
+  let result = rpsls(args._[0]);
 
-console.log(JSON.stringify(result));
-process.exit(0);
+  if (result instanceof Error){
+    console.log(rulesText);
+  }
+  else{
+    console.log(JSON.stringify(result));
+  }
+}
