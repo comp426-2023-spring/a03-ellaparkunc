@@ -9,8 +9,6 @@
 import minimist from 'minimist';
 import {rps} from '../lib/rpsls.js';
 
-console.log(rps());
-
 //Grab provided args.
 const args = minimist(process.argv.slice(2));
 
@@ -43,24 +41,14 @@ if (args.r || args.rules){
     process.exit(0);
 }
 
-//const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours&current_weather=true&timezone=' + timezone);
-
-// Get the data from the request
-
-//const data = await response.json();
-
-//if no arguments,
-
+console.log(args._[0])
 let shot = args._[0]
 
+/*
 if (!args.h || !args.help || !args.r || !args.rules ){
   console.log(`please provide an argument`);
   console.log(`{"player":"rock"}`)
   process.exit(0);
-}
+}*/
 
-
-console.log(`Hello World`);
-process.exit(0);
-
-//console.log(data);
+console.log(JSON.stringify(rps(shot)))

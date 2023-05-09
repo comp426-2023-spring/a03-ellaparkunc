@@ -42,12 +42,6 @@ if (args.r || args.rules){
     process.exit(0);
 }
 
-//if no arguments,
-if (!args.h || !args.help || !args.r || !args.rules ){
-  console.log(`please provide an argument`);
-  console.log(`{"player":"rock"}`)
-  process.exit(0);
-}
 
-console.log(`Hello World`);
+console.log(JSON.stringify(rps(shot)))
 process.exit(0);
